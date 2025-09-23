@@ -7,10 +7,7 @@
         "website": "https://www.innosonvehicles.com",
         "image": "images/innoson.png",
         "membership": 1,
-        "additional_info": {
-            "founded": 2010,
-            "description": "Nigeria's first indigenous vehicle manufacturing company, producing cars, buses, and SUVs."
-        }
+        "description": "Nigeria's first indigenous vehicle manufacturing company, producing cars, buses, and SUVs."
     },
     {
         "name": "SABMiller Nigeria",
@@ -20,10 +17,7 @@
         "website": "https://www.ab-inbev.com",
         "image": "images/sabmiller.png",
         "membership": 2,
-        "additional_info": {
-            "founded": 2009,
-            "description": "A leading brewery producing popular beer brands like Hero and Trophy."
-        }
+        "description": "A leading brewery producing popular beer brands like Hero and Trophy."
     },
     {
         "name": "Tiger Foods Limited",
@@ -33,10 +27,7 @@
         "website": "https://www.tigerfoods.com",
         "image": "images/tiger.png",
         "membership": 2,
-        "additional_info": {
-            "founded": 1998,
-            "description": "Manufacturer of spices, seasonings, and food ingredients for Nigerian cuisine."
-        }
+        "description": "Manufacturer of spices, seasonings, and food ingredients for Nigerian cuisine."
     },
     {
         "name": "Blord Group",
@@ -46,10 +37,7 @@
         "website": "https://www.blordgroup.com",
         "image": "images/blord.png",
         "membership": 1,
-        "additional_info": {
-            "founded": 2020,
-            "description": "A fast-growing tech company specializing in cryptocurrency, real estate, and e-commerce solutions."
-        }
+        "description": "A fast-growing tech company specializing in cryptocurrency, real estate, and e-commerce solutions."
     },
     {
         "name": "Cutix Plc",
@@ -59,10 +47,7 @@
         "website": "https://www.cutixplc.com.ng",
         "image": "images/curtix.png",
         "membership": 3,
-        "additional_info": {
-            "founded": 1982,
-            "description": "A leading manufacturer of electrical cables and wires in Nigeria."
-        }
+        "description": "A leading manufacturer of electrical cables and wires in Nigeria."
     },
     {
         "name": "Dangote Group",
@@ -72,10 +57,7 @@
         "website": "https://www.dangote.com",
         "image": "images/dangote.png",
         "membership": 3,
-        "additional_info": {
-            "founded": 1981,
-            "description": "A leading conglomerate with interests in cement, sugar, salt, and other industries across Africa."
-        }
+        "description": "A leading conglomerate with interests in cement, sugar, salt, and other industries across Africa."
     },
     {
         "name": "BUA Group",
@@ -85,9 +67,6 @@
         "website": "https://www.buagroup.com",
         "image": "images/bua.png",
         "membership": 3,
-        "additional_info": {
-            "founded": 1988,
-            "description": "A major conglomerate with interests in cement, sugar refining, and real estate."
-        }
+        "description": "A major conglomerate with interests in cement, sugar refining, and real estate."
     }
 ]
