@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory - Anambra Chamber of Commerce</title>
+    <meta name="description"
+        content="Discover local businesses in Anambra. Check our member directory to find services and connect with the community.">
+    <meta name="author" content="Hyacinth Chibueze Okoro">
+
+    <meta property="og:title" content="Anambra Chamber of Commerce Directory">
+    <meta property="og:description"
+        content="Discover local businesses in Anambra. Browse our member directory to find services and connect with the community.">
+    <meta property="og:image" content="https://afcyare.github.io/wdd231/chamber/images/marketplace-store.svg">
+    <meta property="og:url" content="https://afcyare.github.io/wdd231/chamber/directory.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/normal.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <script src="scripts/script.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/lolo.svg" alt="svg logo">
+                    <span>Anambra Chamber of Commerce</span>
+                </div>
+
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="directory.html" class="active">Directory</a></li>
+                        <li><a href="join.html">Join</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                    </ul>
+                </nav>
+                <button id="mode"><i class="fas fa-moon"></i> Dark Mode</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="page-title">Business Directory</h1>
+
+        <div class="view-toggle">
+            <button id="gridViewBtn" class="active">&#9638; Grid View</button>
+            <button id="listViewBtn"> &#9776; List View</button>
+        </div>
+
+        <div class="directory">
+            <div id="memberGrid" class="grid-view active">
+                <!-- Member cards will be inserted here by JavaScript -->
+            </div>
+
+            <div id="memberList" class="list-view">
+                <!-- Member list items will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Anambra Chamber of Commerce</h3>
+                    <p>1 Agu Awka Road</p>
+                    <p>Awka, Anambra</p>
+                    <p>info@anambracc.ng</p>
+                    <p>+2348102367227</p>
+                </div>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/hyacinth-okoro-30184179/" target="_blank"><img
+                            src="images/linkedin.svg" alt="linkedIn logo" width="50" height="50"></a>
+                    <a href="https://github.com/ChibuezeO/" target="_blank"><img src="images/github.svg"
+                            alt="github logo" width="50" height="50"></a>
+                    <a href="https://x.com/hyacinth_okoro/" target="_blank"><img src="images/x.svg"
+                            alt="Twitter (X) logo" width="50" height="50"></a>
+                </div>
+                <div class="footer-info">
+                    <h3>WDD231 Chamber Directory Page</h3>
+                    <p>Hyacinth Chibueze Okoro</p>
+                    <p>© <span id="currentYear"></span> Anambra Chamber of Commerce</p>
+                    <p>Last Modification: <span id="lastModified"></span></p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <span id="copyrightYear"></span> Anambra Chamber of Commerce. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
