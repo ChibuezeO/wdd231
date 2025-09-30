@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anambra Chamber of Commerce - Welcome</title>
+    <meta name="description"
+        content="Discover local businesses in Anambra. Anambra Chamber of Commerce connects local businesses, promotes economic growth, and hosts economic and community events in Anambra. Grow your business with our community.">
+    <meta name="author" content="Hyacinth Chibueze Okoro">
+
+    <meta property="og:title" content="Anambra Chamber of Commerce">
+    <meta property="og:description"
+        content="Discover local businesses in Anambra. Browse our page to find services and connect with the community.">
+    <meta property="og:image" content="https://afcyare.github.io/wdd231/chamber/images/marketplace-store.svg">
+    <meta property="og:url" content="https://afcyare.github.io/wdd231/chamber/index.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/normal.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <script src="scripts/script.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/lolo.svg" alt="Anambra Chamber of Commerce Logo" width="50" height="50">
+                    <span>Anambra Chamber of Commerce</span>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav id="nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="join.html">Join</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                    </ul>
+                </nav>
+                <button id="mode" aria-label="Toggle dark mode">
+                    <span class="mode-icon">🌙</span> Dark Mode
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Anambra Chamber of Commerce - Welcome to a partnership that works</h1>
+
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <h2 id="hero-heading">Welcome to Anambra Chamber of Commerce</h2>
+                <p>A partnership that works, One that promotes inclusive growth.</p>
+                <a href="join.html" class="cta-button">Join the Chamber</a>
+            </div>
+        </section>
+
+        <div class="main-grid">
+            <div class="weather-grid">
+
+                <section class="events card" aria-labelledby="events-heading">
+                    <h2 id="events-heading">Events</h2>
+                    <div class="events-content">
+                        <p>Upcoming chamber events and meetings will be listed here.</p>
+                    </div>
+                </section>
+
+                <!-- Current Weather Section -->
+                <section class="current-weather card" aria-labelledby="current-weather-heading">
+                    <h2 id="current-weather-heading">Current Weather</h2>
+                    <div id="currentWeatherData" class="weather-data">
+                        <div class="weather-main">
+                            <span class="temperature" id="currentTemp">--°F</span>
+                            <div class="weather-condition">
+                                <img id="weatherIcon" src="weathericon" alt="" class="weather-icon">
+                                <span id="weatherDesc">--</span>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="weather-row">
+                                <span class="weather-label">High:</span>
+                                <span class="weather-value" id="highTemp">--°</span>
+                            </div>
+                            <div class="weather-row">
+                                <span class="weather-label">Low:</span>
+                                <span class="weather-value" id="lowTemp">--°</span>
+                            </div>
+                            <div class="weather-row">
+                                <span class="weather-label">Humidity:</span>
+                                <span class="weather-value" id="humidity">--%</span>
+                            </div>
+                            <div class="weather-row">
+                                <span class="weather-label">Sunrise:</span>
+                                <span class="weather-value" id="sunrise">--:--</span>
+                            </div>
+                            <div class="weather-row">
+                                <span class="weather-label">Sunset:</span>
+                                <span class="weather-value" id="sunset">--:--</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Weather Forecast Section -->
+                <section class="weather-forecast card" aria-labelledby="forecast-heading">
+                    <h2 id="forecast-heading">Weather Forecast</h2>
+                    <div id="weatherForecast" class="forecast-data">
+                        <div class="forecast-day">
+                            <span class="day-name">Today</span>
+                            <span class="day-temp" id="forecastToday">--°F</span>
+                        </div>
+                        <div class="forecast-day">
+                            <span class="day-name">Wednesday</span>
+                            <span class="day-temp" id="forecastWed">--°F</span>
+                        </div>
+                        <div class="forecast-day">
+                            <span class="day-name">Thursday</span>
+                            <span class="day-temp" id="forecastThu">--°F</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Member Spotlights Section -->
+            <section class="spotlights" aria-labelledby="spotlights-heading">
+                <h2 id="spotlights-heading" class="sr-only">Member Spotlights</h2>
+                <div id="spotlightContainer" class="spotlights-grid">
+                    <!-- Spotlights will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Anambra Chamber of Commerce</h3>
+                    <p>1 Agu Awka Road</p>
+                    <p>Awka, Anambra</p>
+                    <p>info@anambracc.ng</p>
+                    <p>+2348102367227</p>
+                </div>
+
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/hyacinth-okoro-30184179/" target="_blank"><img
+                            src="images/linkedin.svg" alt="linkedIn logo" width="50" height="50"></a>
+                    <a href="https://github.com/ChibuezeO/" target="_blank"><img src="images/github.svg"
+                            alt="github logo" width="50" height="50"></a>
+                    <a href="https://x.com/hyacinth_okoro/" target="_blank"><img src="images/x.svg"
+                            alt="Twitter (X) logo" width="50" height="50"></a>
+                </div>
+                <div class="footer-info">
+                    <h3>WDD231 Chamber Home Page</h3>
+                    <p>Hyacinth Chibueze Okoro</p>
+                    <p>© <span id="currentYear"></span> Anambra Chamber of Commerce</p>
+                    <p>Last Modification: <span id="lastModified"></span></p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <span id="copyrightYear"></span> Anambra Chamber of Commerce. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

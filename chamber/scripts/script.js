@@ -1,140 +1,348 @@
-let members = [];
+const members = [];
+const WEATHER_API_KEY = "665720a6033f794513b241fcef18f0db";
+const KAMPALA_COORDS = { lat: 0.3311048011147609, lon: 32.73739061775799 };
 
-// Load members from JSON
-async function loadMembers() {
-    try {
-        const response = await fetch('data/members.json');
-        if (!response.ok) throw new Error('Failed to load members.json');
-        members = await response.json();
-        // After loading members, display them
-        displayMembersGrid();
-        displayMembersList();
-    } catch (error) {
-        console.error(error);
+const elements = {
+    hamburger: document.getElementById('hamburger'),
+    nav: document.getElementById('nav'),
+    mode: document.getElementById('mode'),
+    currentYear: document.getElementById('currentYear'),
+    copyrightYear: document.getElementById('copyrightYear'),
+    lastModified: document.getElementById('lastModified'),
+};
+
+const utils = {
+    formatDate: (date) => date.toLocaleDateString('en-US', { weekday: 'long' }),
+
+    capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
+
+    $: (selector) => document.querySelector(selector),
+    $$: (selector) => document.querySelectorAll(selector)
+};
+
+const memberManager = {
+    async loadMembers() {
+        try {
+            const response = await fetch('data/members.json');
+            if (!response.ok) throw new Error('Failed to load members');
+            const data = await response.json();
+            members.push(...data);
+            return data;
+        } catch (error) {
+            console.error('Error loading members:', error);
+            return this.getFallbackMembers();
+        }
+
+    },
+
+    getMembershipInfo(level) {
+        const levels = {
+            1: { class: 'membership-bronze', text: 'Bronze Member' },
+            2: { class: 'membership-silver', text: 'Silver Member' },
+            3: { class: 'membership-gold', text: 'Gold Member' }
+        };
+        return levels[level] || levels[1];
     }
-}
+};
 
-// Function to display members in grid view
-function displayMembersGrid() {
-    const gridContainer = document.getElementById('memberGrid');
-    gridContainer.innerHTML = '';
+const directoryManager = {
+    init() {
+        this.setupViewToggle();
+        this.loadAndDisplayMembers();
+    },
 
-    members.forEach(member => {
-        const membershipLevels = ['Bronze', 'Silver', 'Gold'];
-        const membershipClasses = ['membership-bronze', 'membership-silver', 'membership-gold'];
+    setupViewToggle() {
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const listViewBtn = document.getElementById('listViewBtn');
+        const memberGrid = document.getElementById('memberGrid');
+        const memberList = document.getElementById('memberList');
 
-        const card = document.createElement('div');
-        card.className = 'member-card grid';
-        card.innerHTML = `
-      <img src="${member.image}" alt="${member.name}" class="member-image">
-      <h3 class="member-name">${member.name}</h3>
-      <p class="member-category">${member.category}</p>
-      <p class="member-address">${member.address}</p>
-      <p class="member-phone">${member.phone}</p>
-      <p class="member-url"><a href="${member.website}" target="_blank">Visit Website</a></p>
-      <p class="member-description">${member.description}</p>
-      <span class="member-membership ${membershipClasses[member.membership - 1]}">${membershipLevels[member.membership - 1]} Member</span>
-    `;
+        if (!gridViewBtn) return;
 
-        gridContainer.appendChild(card);
-    });
-}
+        const toggleView = (view) => {
+            const isGrid = view === 'grid';
+            gridViewBtn.classList.toggle('active', isGrid);
+            listViewBtn.classList.toggle('active', !isGrid);
+            gridViewBtn.setAttribute('aria-pressed', isGrid);
+            listViewBtn.setAttribute('aria-pressed', !isGrid);
 
-// Function to display members in list view
-function displayMembersList() {
-    const listContainer = document.getElementById('memberList');
-    listContainer.innerHTML = '';
+            memberGrid.classList.toggle('active', isGrid);
+            memberList.classList.toggle('active', !isGrid);
+        };
 
-    members.forEach(member => {
-        const membershipLevels = ['Bronze', 'Silver', 'Gold'];
-        const membershipClasses = ['membership-bronze', 'membership-silver', 'membership-gold'];
+        gridViewBtn.addEventListener('click', () => toggleView('grid'));
+        listViewBtn.addEventListener('click', () => toggleView('list'));
+    },
 
-        const listItem = document.createElement('div');
-        listItem.className = 'member-card list';
-        listItem.innerHTML = `
-      <img src="${member.image}" alt="${member.name}" class="member-image">
-      <div>
-        <h3 class="member-name">${member.name}</h3>
-        <p class="member-category">${member.category}</p>
-        <p class="member-address">${member.address}</p>
-        <p class="member-phone">${member.phone}</p>
-        <p class="member-url"><a href="${member.website}" target="_blank">Visit Website</a></p>
-        <p class="member-description">${member.description}</p>
-        <span class="member-membership ${membershipClasses[member.membership - 1]}">${membershipLevels[member.membership - 1]} Member</span>
-      </div>
-    `;
+    async loadAndDisplayMembers() {
+        const memberGrid = document.getElementById('memberGrid');
+        const memberList = document.getElementById('memberList');
 
-        listContainer.appendChild(listItem);
-    });
-}
+        if (!memberGrid) return;
 
-// Toggle between grid and list views
-function setupViewToggle() {
-    const gridViewBtn = document.getElementById('gridViewBtn');
-    const listViewBtn = document.getElementById('listViewBtn');
-    const memberGrid = document.getElementById('memberGrid');
-    const memberList = document.getElementById('memberList');
+        const members = await memberManager.loadMembers();
+        this.displayMembersGrid(members);
+        this.displayMembersList(members);
+    },
 
-    gridViewBtn.addEventListener('click', function () {
-        gridViewBtn.classList.add('active');
-        listViewBtn.classList.remove('active');
-        memberGrid.classList.add('active');
-        memberList.classList.remove('active');
-    });
+    displayMembersGrid(members) {
+        const container = document.getElementById('memberGrid');
+        if (!container) return;
 
-    listViewBtn.addEventListener('click', function () {
-        listViewBtn.classList.add('active');
-        gridViewBtn.classList.remove('active');
-        memberList.classList.add('active');
-        memberGrid.classList.remove('active');
-    });
-}
+        container.innerHTML = members.map(member => this.createMemberCard(member, 'grid')).join('');
+    },
 
-// Hamburger menu functionality
-function setupHamburgerMenu() {
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
+    displayMembersList(members) {
+        const container = document.getElementById('memberList');
+        if (!container) return;
 
-    hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
+        container.innerHTML = members.map(member => this.createMemberCard(member, 'list')).join('');
+    },
 
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
+    createMemberCard(member, view) {
+        const membership = memberManager.getMembershipInfo(member.membership);
+
+        return `
+            <div class="member-card ${view}" role="listitem">
+                <img src="${member.image}" alt="${member.name}" class="member-image" loading="lazy">
+                <div class="member-info">
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-category">${member.category}</p>
+                    <p class="member-address">${member.address}</p>
+                    <p class="member-phone">${member.phone}</p>
+                    <p class="member-url"><a href="${member.website}" target="_blank" rel="noopener">Visit Website</a></p>
+                    <p class="member-description">${member.description}</p>
+                    <span class="member-membership ${membership.class}">${membership.text}</span>
+                </div>
+            </div>
+        `;
+    }
+};
+
+const weatherManager = {
+    async init() {
+        await Promise.all([
+            this.getCurrentWeather(),
+            this.getForecast()
+        ]);
+    },
+
+    async fetchWeather(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return await response.json();
+        } catch (error) {
+            console.error('Weather API error:', error);
+            return null;
+        }
+    },
+
+    async getCurrentWeather() {
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${KAMPALA_COORDS.lat}&lon=${KAMPALA_COORDS.lon}&appid=${WEATHER_API_KEY}&units=imperial`;
+        const data = await this.fetchWeather(url);
+        if (data) this.updateCurrentWeather(data);
+    },
+
+    async getForecast() {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${KAMPALA_COORDS.lat}&lon=${KAMPALA_COORDS.lon}&appid=${WEATHER_API_KEY}&units=imperial`;
+        const data = await this.fetchWeather(url);
+        if (data) this.updateForecast(data.list);
+    },
+
+    updateCurrentWeather(data) {
+        const container = document.getElementById('currentWeatherData');
+        if (!container) return;
+
+        const desc = utils.capitalize(data.weather[0].description);
+        const iconSrc = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        const sunrise = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        container.innerHTML = `
+            <figure>
+                <img src="${iconSrc}" alt="${desc}" width="80" height="80">
+                <figcaption>${desc}</figcaption>
+            </figure>
+            <p><strong>Temperature:</strong> ${Math.round(data.main.temp)}°F</p>
+            <p><strong>High:</strong> ${Math.round(data.main.temp_max)}°F</p>
+            <p><strong>Low:</strong> ${Math.round(data.main.temp_min)}°F</p>
+            <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
+            <p><strong>Sunrise:</strong> ${sunrise}</p>
+            <p><strong>Sunset:</strong> ${sunset}</p>
+        `;
+    },
+
+    updateForecast(forecastList) {
+        const container = document.getElementById('weatherForecast');
+        if (!container) return;
+
+        const today = new Date().toDateString();
+        const nextDays = forecastList
+            .filter(item => new Date(item.dt_txt).toDateString() !== today)
+            .reduce((acc, item) => {
+                const date = item.dt_txt.split(' ')[0];
+                if (!acc[date]) acc[date] = item;
+                return acc;
+            }, {});
+
+        const forecastHTML = Object.values(nextDays)
+            .slice(0, 3)
+            .map(item => {
+                const date = new Date(item.dt_txt);
+                const dayName = utils.formatDate(date);
+                return `<p><strong>${dayName}:</strong> ${Math.round(item.main.temp)}°F</p>`;
+            })
+            .join('');
+
+        container.innerHTML = forecastHTML;
+    }
+};
+
+const spotlightManager = {
+    async init() {
+        const container = document.getElementById('spotlightContainer');
+        if (!container) return;
+
+        const members = await memberManager.loadMembers();
+        this.displaySpotlights(members);
+    },
+
+    displaySpotlights(members) {
+        const container = document.getElementById('spotlightContainer');
+        if (!container) return;
+
+        const qualifiedMembers = members.filter(m => m.membership >= 2);
+        const selectedMembers = this.selectRandomMembers(qualifiedMembers, 2, 3);
+
+        if (selectedMembers.length === 0) {
+            container.innerHTML = '<p style="text-align: center; padding: 2rem;">No spotlight members available.</p>';
+            return;
+        }
+
+        container.innerHTML = selectedMembers.map(member => this.createSpotlightCard(member)).join('');
+    },
+
+    selectRandomMembers(members, min, max) {
+        const count = Math.min(Math.floor(Math.random() * (max - min + 1)) + min, members.length);
+        const shuffled = [...members].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    },
+
+    createSpotlightCard(member) {
+        const membership = member.membership === 3 ?
+            { class: 'spotlight-gold', text: 'Gold Member' } :
+            { class: 'spotlight-silver', text: 'Silver Member' };
+
+        return `
+            <div class="spotlight-card">
+                <img src="${member.image}" alt="${member.name} logo" class="spotlight-image" loading="lazy">
+                <h3 class="spotlight-name">${member.name}</h3>
+                <p class="spotlight-category">${member.category}</p>
+                <p class="spotlight-address">${member.address}</p>
+                <p class="spotlight-phone">${member.phone}</p>
+                <p class="spotlight-url"><a href="${member.website}" target="_blank" rel="noopener">Visit Website</a></p>
+                <p class="spotlight-description">${member.description}</p>
+                <div class="spotlight-membership ${membership.class}">${membership.text}</div>
+            </div>
+        `;
+    }
+};
+
+const uiManager = {
+    init() {
+        this.setupHamburgerMenu();
+        this.setupDarkMode();
+        this.updateFooterInfo();
+    },
+
+    setupHamburgerMenu() {
+        if (!elements.hamburger) return;
+
+        elements.hamburger.addEventListener('click', () => {
+            elements.hamburger.classList.toggle('active');
+            elements.nav.classList.toggle('active');
         });
-    });
-}
 
-// Dark mode functionality
-const modeButton = document.querySelector("#mode");
-const body = document.querySelector("body");
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                elements.hamburger.classList.remove('active');
+                elements.nav.classList.remove('active');
+            });
+        });
+    },
 
-modeButton.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
+    setupDarkMode() {
+        if (!elements.mode) return;
 
-    if (body.classList.contains("dark-mode")) {
-        modeButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-    } else {
-        modeButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'true') {
+            document.body.classList.add('dark-mode');
+            this.updateModeButton(true);
+        }
+
+        elements.mode.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            this.updateModeButton(isDark);
+        });
+    },
+
+    updateModeButton(isDark) {
+        if (!elements.mode) return;
+        elements.mode.innerHTML = isDark ?
+            '<span class="mode-icon">☀️</span> Light Mode' :
+            '<span class="mode-icon">🌙</span> Dark Mode';
+    },
+
+    updateFooterInfo() {
+        const year = new Date().getFullYear();
+        if (elements.currentYear) elements.currentYear.textContent = year;
+        if (elements.copyrightYear) elements.copyrightYear.textContent = year;
+        if (elements.lastModified) elements.lastModified.textContent = document.lastModified;
     }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    uiManager.init();
+    directoryManager.init();
+    weatherManager.init();
+    spotlightManager.init();
 });
 
-// Footer information
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-document.getElementById('copyrightYear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = document.lastModified;
 
-// Initialize the page
-function init() {
-    loadMembers();           // fetch and display members
-    setupViewToggle();
-    setupHamburgerMenu();
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-// Run initialization when page loads
-document.addEventListener('DOMContentLoaded', init);
+
+    const timeField = document.getElementById("date");
+    if (timeField) {
+        timeField.value = new Date().toISOString();
+    }
+
+
+    const memberships = ["np", "bronze", "silver", "gold"];
+
+    memberships.forEach(level => {
+        const button = document.getElementById(level);
+        const modal = document.getElementById(`${level}Modal`);
+        const closeBtn = modal?.querySelector(".close");
+
+        if (button && modal && closeBtn) {
+            button.addEventListener("click", () => modal.showModal());
+            closeBtn.addEventListener("click", () => modal.close());
+        }
+    });
+
+    const result = document.getElementById("results");
+    if (result) {
+        const myInfo = new URLSearchParams(window.location.search);
+        result.innerHTML = `
+      <p>Thank you, <strong>${myInfo.get("fname")} ${myInfo.get("lname")}</strong>!</p>
+      <p>Email: ${myInfo.get("email")}</p>
+      <p>Phone: ${myInfo.get("tel")}</p>
+      <p>Organization: ${myInfo.get("org")}</p>
+      <p>Membership Level: ${myInfo.get("membership")}</p>
+      <p>Submitted on: ${myInfo.get("date")}</p>
+    `;
+    }
+});
