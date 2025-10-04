@@ -536,7 +536,7 @@ footer {
 
 .footer-info h3 {
     margin-bottom: 0.5rem;
-    color: #07ffb0;
+    color: #07cdff;
 }
 
 .copyright {
@@ -622,5 +622,389 @@ footer {
 
     .view-toggle {
         justify-content: center;
+    }
+}
+
+
+.joincontainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.joincontainer h1 {
+    margin-bottom: 20px;
+    grid-column: 1/-1;
+}
+
+
+label {
+    display: block;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel] {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    border-left: 0.5rem solid gray;
+    font-size: 1.3rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-left-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #fff;
+    /* default background */
+}
+
+/* Validation feedback */
+input[type=text]:valid,
+input[type=email]:valid,
+input[type=tel]:valid {
+    border-left-color: #120a83;
+    background-color: #e6ffe6;
+    /* subtle light green */
+}
+
+input[type=text]:invalid,
+input[type=email]:invalid,
+input[type=tel]:invalid {
+    border-left-color: #120a83;
+    background-color: #e6f7ff;
+    /* subtle light red */
+}
+
+/* Focus state */
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus {
+    outline: none;
+    /* remove default outline */
+    border-left-color: #120a83;
+    /* match your theme */
+    box-shadow: 0 0 5px rgba(5, 66, 38, 0.3);
+}
+
+/* Placeholder style */
+input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+#desc {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    /* allow vertical resizing only */
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#desc:focus {
+    border-color: #120a83;
+    box-shadow: 0 0 5px rgba(5, 66, 38, 0.3);
+    outline: none;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-size: 2rem;
+}
+
+.membership h2 {
+    margin-bottom: 0.5rem;
+}
+
+#btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #120a83;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn:hover {
+    background-color: #120a83;
+    transform: translateY(-2px);
+}
+
+#btn:active {
+    transform: translateY(0);
+}
+
+.card {
+    background-color: #120a83;
+    color: #c6bcbc;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    border-bottom-left-radius: 30px;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.learn {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ----------------- MODAL STYLES ----------------- */
+dialog {
+    width: 90%;
+    max-width: 500px;
+    border: none;
+    border-radius: 10px;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    background-color: #f9f9f9;
+    color: #120a83;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ✖ Close button in top-right */
+dialog .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #120a83;
+}
+
+dialog h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+dialog ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+/* Fade-in animation for modals */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    animation: fadeInBackdrop 0.3s ease;
+}
+
+@keyframes fadeInBackdrop {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ----------------- THANK-YOU PAGE STYLES ----------------- */
+#results {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #e8f5e9;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid #120a83;
+    font-family: 'Roboto', sans-serif;
+    color: #120a83;
+}
+
+#results p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+#results strong {
+    font-size: 1.3rem;
+}
+
+/* subtle fade-in for thank-you box */
+#results {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+}
+
+
+/* Discover wrapper */
+.discover {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.discover h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #120a83;
+}
+
+.discover section {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Base discoverCard */
+.discoverCard {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.discoverCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Assign areas */
+.discoverCard>h2 {
+    grid-area: title;
+    color: #120a83;
+    margin-bottom: 0.5rem;
+}
+
+.discoverCard>figure {
+    grid-area: image;
+    margin: 0;
+}
+
+.discoverCard>.info {
+    grid-area: info;
+}
+
+.discoverCard a {
+    grid-area: link;
+    background-color: #120a83;
+    color: #fff;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.discoverCard a:hover {
+    background-color: #120a83;
+}
+
+.discoverCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content p {
+    margin-bottom: 1rem;
+}
+
+address {
+    font-style: normal;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+#sidebar {
+    background: #f0f9ff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid #120a83;
+    border-radius: 6px;
+}
+
+
+/* 📱 Small screens (320px–640px) → stacked */
+@media screen and (max-width: 640px) {
+    .discoverCard {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "image"
+            "info"
+            "link";
+    }
+}
+
+/* 💻 Medium screens (641px–1024px) → image left, info right */
+@media screen and (min-width: 641px) {
+    .discover section {
+        grid-template-columns: 1fr;
+    }
+
+    .discoverCard {
+        grid-template-columns: 300px 1fr;
+        grid-template-areas:
+            "title title"
+            "image info"
+            "link link";
+    }
+
+    .discoverCard img:hover {
+        transform: scale(1.05);
+        /* slightly zoom in */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        /* subtle shadow */
+        cursor: pointer;
+        /* shows pointer for interactivity */
+    }
+}
+
+/* 🖥️ Large screens (1025px and above) → fixed image column, flexible info */
+@media screen and (min-width: 1025px) {
+    .discover section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .discoverCard {
+        grid-template-columns: 300px 1fr;
+        grid-template-areas:
+            "title title"
+            "image info"
+            "link link";
     }
 }
