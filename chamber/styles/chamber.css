@@ -1008,3 +1008,167 @@ address {
             "link link";
     }
 }
+
+.attraction-card {
+    display: grid;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+}
+
+.attraction-title {
+    grid-area: title;
+    font-size: 1rem;
+    margin: 0 0 0.3rem;
+    color: #2c3e50;
+}
+
+.attraction-image {
+    grid-area: image;
+}
+
+.attraction-image img {
+    width: auto;
+    max-width: auto;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 0.2rem;
+}
+
+.attraction-image figcaption {
+    text-align: center;
+    font-size: 0.5rem;
+    color: #34495e;
+}
+
+.attraction-address {
+    grid-area: address;
+    font-style: normal;
+    margin: 0.5rem 0;
+    color: #34495e;
+}
+
+.attraction-cost {
+    grid-area: cost;
+    font-weight: bold;
+    margin: 0.3rem 0;
+    color: #e74c3c;
+}
+
+.attraction-description {
+    grid-area: desc;
+    margin: 0.5rem 0;
+    color: #34495e;
+}
+
+.learn-more {
+    grid-area: button;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.learn-more:hover {
+    background: #2980b9;
+}
+
+/* Small screens (320px–640px) */
+@media (min-width: 320px) and (max-width: 640px) {
+    .attraction-card {
+        grid-template-areas:
+            "title"
+            "image"
+            "address"
+            "cost"
+            "desc"
+            "button";
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+/* Medium screens (641px–1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .attraction-card {
+        grid-template-areas:
+            "title   title"
+            "image   address"
+            "image   cost"
+            "desc    desc"
+            "button  button";
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Large screens (1025px and above) */
+@media (min-width: 1025px) {
+    .attraction-card {
+        grid-template-areas:
+            "image title"
+            "image address"
+            "image cost"
+            "image desc"
+            "image button";
+        grid-template-columns: 300px 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Grid layout for main.discover section */
+main.discover section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Large screens: Two cards per line */
+@media (min-width: 1025px) {
+    main.discover section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        max-width: 1200px;
+        /* Limit total width */
+        margin: 0 auto;
+        /* Center the grid */
+    }
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .attraction-card {
+    background: #34495e;
+    color: #ecf0f1;
+}
+
+body.dark-mode .attraction-title {
+    color: #ecf0f1;
+}
+
+body.dark-mode .attraction-image figcaption,
+body.dark-mode .attraction-address,
+body.dark-mode .attraction-cost,
+body.dark-mode .attraction-description {
+    color: #bdc3c7;
+}
+
+body.dark-mode .learn-more {
+    background: #2980b9;
+}
+
+body.dark-mode .learn-more:hover {
+    background: #3498db;
+}

@@ -13,9 +13,7 @@ const elements = {
 
 const utils = {
     formatDate: (date) => date.toLocaleDateString('en-US', { weekday: 'long' }),
-
     capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1),
-
     $: (selector) => document.querySelector(selector),
     $$: (selector) => document.querySelectorAll(selector)
 };
@@ -32,9 +30,7 @@ const memberManager = {
             console.error('Error loading members:', error);
             return this.getFallbackMembers();
         }
-
     },
-
     getMembershipInfo(level) {
         const levels = {
             1: { class: 'membership-bronze', text: 'Bronze Member' },
@@ -42,6 +38,9 @@ const memberManager = {
             3: { class: 'membership-gold', text: 'Gold Member' }
         };
         return levels[level] || levels[1];
+    },
+    getFallbackMembers() {
+        return [];
     }
 };
 
@@ -50,7 +49,6 @@ const directoryManager = {
         this.setupViewToggle();
         this.loadAndDisplayMembers();
     },
-
     setupViewToggle() {
         const gridViewBtn = document.getElementById('gridViewBtn');
         const listViewBtn = document.getElementById('listViewBtn');
@@ -73,7 +71,6 @@ const directoryManager = {
         gridViewBtn.addEventListener('click', () => toggleView('grid'));
         listViewBtn.addEventListener('click', () => toggleView('list'));
     },
-
     async loadAndDisplayMembers() {
         const memberGrid = document.getElementById('memberGrid');
         const memberList = document.getElementById('memberList');
@@ -84,21 +81,18 @@ const directoryManager = {
         this.displayMembersGrid(members);
         this.displayMembersList(members);
     },
-
     displayMembersGrid(members) {
         const container = document.getElementById('memberGrid');
         if (!container) return;
 
         container.innerHTML = members.map(member => this.createMemberCard(member, 'grid')).join('');
     },
-
     displayMembersList(members) {
         const container = document.getElementById('memberList');
         if (!container) return;
 
         container.innerHTML = members.map(member => this.createMemberCard(member, 'list')).join('');
     },
-
     createMemberCard(member, view) {
         const membership = memberManager.getMembershipInfo(member.membership);
 
@@ -119,6 +113,48 @@ const directoryManager = {
     }
 };
 
+const attractionsManager = {
+    async loadAttractions() {
+        try {
+            const response = await fetch('data/attractions.json');
+            if (!response.ok) throw new Error('Failed to load attractions');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error loading attractions:', error);
+            return this.getFallbackAttractions();
+        }
+    },
+    getFallbackAttractions() {
+        return [];
+    },
+    async init() {
+        const attractions = await this.loadAttractions();
+        this.displayAttractions(attractions);
+    },
+    displayAttractions(attractions) {
+        const container = utils.$('main.discover section');
+        if (!container) return;
+
+        container.innerHTML = attractions.map(attraction => this.createAttractionCard(attraction)).join('');
+    },
+    createAttractionCard(attraction) {
+        return `
+            <div class="attraction-card" role="listitem">
+                <h2 class="attraction-title">${attraction.name}</h2>
+                <figure class="attraction-image">
+                    <img src="${attraction.photo_url}" alt="${attraction.name}" loading="lazy">
+                    <figcaption>${attraction.name}</figcaption>
+                </figure>
+                <address class="attraction-address">${attraction.address}</address>
+                <p class="attraction-cost">${attraction.cost}</p>
+                <p class="attraction-description">${attraction.description}</p>
+                <button class="learn-more" aria-label="Learn more about ${attraction.name}">Learn More</button>
+            </div>
+        `;
+    }
+};
+
 const weatherManager = {
     async init() {
         await Promise.all([
@@ -126,7 +162,6 @@ const weatherManager = {
             this.getForecast()
         ]);
     },
-
     async fetchWeather(url) {
         try {
             const response = await fetch(url);
@@ -137,19 +172,16 @@ const weatherManager = {
             return null;
         }
     },
-
     async getCurrentWeather() {
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${KAMPALA_COORDS.lat}&lon=${KAMPALA_COORDS.lon}&appid=${WEATHER_API_KEY}&units=imperial`;
         const data = await this.fetchWeather(url);
         if (data) this.updateCurrentWeather(data);
     },
-
     async getForecast() {
         const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${KAMPALA_COORDS.lat}&lon=${KAMPALA_COORDS.lon}&appid=${WEATHER_API_KEY}&units=imperial`;
         const data = await this.fetchWeather(url);
         if (data) this.updateForecast(data.list);
     },
-
     updateCurrentWeather(data) {
         const container = document.getElementById('currentWeatherData');
         if (!container) return;
@@ -172,7 +204,6 @@ const weatherManager = {
             <p><strong>Sunset:</strong> ${sunset}</p>
         `;
     },
-
     updateForecast(forecastList) {
         const container = document.getElementById('weatherForecast');
         if (!container) return;
@@ -203,11 +234,9 @@ const spotlightManager = {
     async init() {
         const container = document.getElementById('spotlightContainer');
         if (!container) return;
-
         const members = await memberManager.loadMembers();
         this.displaySpotlights(members);
     },
-
     displaySpotlights(members) {
         const container = document.getElementById('spotlightContainer');
         if (!container) return;
@@ -222,13 +251,11 @@ const spotlightManager = {
 
         container.innerHTML = selectedMembers.map(member => this.createSpotlightCard(member)).join('');
     },
-
     selectRandomMembers(members, min, max) {
         const count = Math.min(Math.floor(Math.random() * (max - min + 1)) + min, members.length);
         const shuffled = [...members].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     },
-
     createSpotlightCard(member) {
         const membership = member.membership === 3 ?
             { class: 'spotlight-gold', text: 'Gold Member' } :
@@ -255,7 +282,6 @@ const uiManager = {
         this.setupDarkMode();
         this.updateFooterInfo();
     },
-
     setupHamburgerMenu() {
         if (!elements.hamburger) return;
 
@@ -271,7 +297,6 @@ const uiManager = {
             });
         });
     },
-
     setupDarkMode() {
         if (!elements.mode) return;
 
@@ -287,14 +312,12 @@ const uiManager = {
             this.updateModeButton(isDark);
         });
     },
-
     updateModeButton(isDark) {
         if (!elements.mode) return;
         elements.mode.innerHTML = isDark ?
-            '<span class="mode-icon">☀️</span> Light Mode' :
-            '<span class="mode-icon">🌙</span> Dark Mode';
+            '<span class="mode-icon"></span> Light Mode' :
+            '<span class="mode-icon"></span> Dark Mode';
     },
-
     updateFooterInfo() {
         const year = new Date().getFullYear();
         if (elements.currentYear) elements.currentYear.textContent = year;
@@ -308,20 +331,15 @@ document.addEventListener('DOMContentLoaded', () => {
     directoryManager.init();
     weatherManager.init();
     spotlightManager.init();
+    attractionsManager.init();
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
-
-
     const timeField = document.getElementById("date");
     if (timeField) {
         timeField.value = new Date().toISOString();
     }
-
-
     const memberships = ["np", "bronze", "silver", "gold"];
-
     memberships.forEach(level => {
         const button = document.getElementById(level);
         const modal = document.getElementById(`${level}Modal`);
@@ -337,12 +355,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (result) {
         const myInfo = new URLSearchParams(window.location.search);
         result.innerHTML = `
-      <p>Thank you, <strong>${myInfo.get("fname")} ${myInfo.get("lname")}</strong>!</p>
-      <p>Email: ${myInfo.get("email")}</p>
-      <p>Phone: ${myInfo.get("tel")}</p>
-      <p>Organization: ${myInfo.get("org")}</p>
-      <p>Membership Level: ${myInfo.get("membership")}</p>
-      <p>Submitted on: ${myInfo.get("date")}</p>
-    `;
+            <p>Thank you, <strong>${myInfo.get("fname")} ${myInfo.get("lname")}</strong>!</p>
+            <p>Email: ${myInfo.get("email")}</p>
+            <p>Phone: ${myInfo.get("tel")}</p>
+            <p>Organization: ${myInfo.get("org")}</p>
+            <p>Membership Level: ${myInfo.get("membership")}</p>
+            <p>Submitted on: ${myInfo.get("date")}</p>
+        `;
     }
 });
