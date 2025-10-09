@@ -1036,7 +1036,6 @@ address {
 
 .attraction-image img {
     width: auto;
-    max-width: auto;
     height: auto;
     border-radius: 4px;
     margin-bottom: 0.2rem;
