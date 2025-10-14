@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directory - Igbo Cultural Heritage Hub</title>
+    <meta name="description"
+        content="Explore Igbo cultural organizations, artisans, and heritage groups. Connect with our community.">
+    <meta name="author" content="Hyacinth Chibueze Okoro">
+    <meta property="og:title" content="Igbo Cultural Heritage Hub Directory">
+    <meta property="og:description"
+        content="Discover Igbo cultural organizations and artisans. Connect with our heritage community.">
+    <meta property="og:image" content="https://afcyare.github.io/wdd231/cultural/images/igbo-mask.svg">
+    <meta property="og:url" content="https://afcyare.github.io/wdd231/cultural/directory.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/normal.css">
+    <link rel="stylesheet" href="styles/cultural.css">
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Igbo Cultural Heritage Hub Logo">
+                    <span>Igbo Cultural Heritage Hub</span>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="directory.html">Cultural Groups</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="discover.html">Learn More</a></li>
+                    </ul>
+                </nav>
+                <button id="mode"><i class="fas fa-moon"></i> Dark Mode</button>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h1 class="page-title">Cultural Directory</h1>
+        <div class="view-toggle">
+            <button id="gridViewBtn" class="active">&#9638; Grid View</button>
+            <button id="listViewBtn"> &#9776; List View</button>
+        </div>
+        <div class="directory">
+            <div id="memberGrid" class="grid-view active"></div>
+            <div id="memberList" class="list-view"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Igbo Cultural Heritage Hub</h3>
+                    <p>Awka, Anambra</p>
+                    <p>info@igboculturalhub.ng</p>
+                    <p>+2348102367227</p>
+                </div>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/hyacinth-okoro-30184179/" target="_blank"><img
+                            src="images/linkedin.svg" alt="LinkedIn logo" width="50" height="50"></a>
+                    <a href="https://github.com/ChibuezeO/" target="_blank"><img src="images/github.svg"
+                            alt="GitHub logo" width="50" height="50"></a>
+                    <a href="https://x.com/hyacinth_okoro/" target="_blank"><img src="images/x.svg"
+                            alt="Twitter (X) logo" width="50" height="50"></a>
+                </div>
+                <div class="footer-info">
+                    <h3>WDD231 Cultural Directory Page</h3>
+                    <p>Hyacinth Chibueze Okoro</p>
+                    <p>© <span id="currentYear"></span> Igbo Cultural Heritage Hub</p>
+                    <p>Last Modification: <span id="lastModified"></span></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="copyrightYear"></span> Igbo Cultural Heritage Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

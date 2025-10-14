@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Umuada Igbo Cultural Association",
+        "category": "Cultural Organization",
+        "address": "10 Okigwe Road, Owerri, Imo State",
+        "phone": "+234 803 123 4567",
+        "website": "https://www.umuadaigbo.org",
+        "image": "images/umuada.webp",
+        "membership": 1,
+        "description": "A women's group dedicated to preserving Igbo traditions and empowering communities through cultural education and events."
+    },
+    {
+        "name": "Igbo Masquerade Guild",
+        "category": "Performing Arts",
+        "address": "5 Nnewi Street, Enugu, Enugu State",
+        "phone": "+234 807 654 3210",
+        "website": "https://www.igbomasquerade.com",
+        "image": "images/masquerade.webp",
+        "membership": 2,
+        "description": "A guild of traditional masquerade performers showcasing vibrant Igbo festivals and dances."
+    },
+    {
+        "name": "Omenala Artisans",
+        "category": "Craftsmanship",
+        "address": "15 Awka Road, Onitsha, Anambra State",
+        "phone": "+234 802 987 6543",
+        "website": "https://www.omenalaart.com",
+        "image": "images/omenala.webp",
+        "membership": 2,
+        "description": "Artisans creating traditional Igbo sculptures, beads, and textiles, preserving ancient craftsmanship."
+    },
+    {
+        "name": "Igbo Heritage Foundation",
+        "category": "Cultural Preservation",
+        "address": "20 Umuahia Road, Aba, Abia State",
+        "phone": "+234 906 111 2222",
+        "website": "https://www.igboheritage.org",
+        "image": "images/heritage.png",
+        "membership": 3,
+        "description": "A foundation focused on preserving Igbo history, language, and artifacts through research and exhibitions."
+    },
+    {
+        "name": "Mmanwu Cultural Troupe",
+        "category": "Performing Arts",
+        "address": "8 Ezeagu Street, Nsukka, Enugu State",
+        "phone": "+234 803 555 7777",
+        "website": "https://www.mmanwutroupe.com",
+        "image": "images/mmanwu.webp",
+        "membership": 3,
+        "description": "A troupe specializing in Igbo masquerade performances, promoting cultural storytelling."
+    },
+    {
+        "name": "Igbo Language Institute",
+        "category": "Education",
+        "address": "12 Azikiwe Avenue, Awka, Anambra State",
+        "phone": "+234 811 223 3445",
+        "website": "https://www.igbolanguage.org",
+        "image": "images/language.webp",
+        "membership": 4,
+        "description": "An institute dedicated to teaching and preserving the Igbo language and oral traditions."
+    },
+    {
+        "name": "Ozo Title Holders Association",
+        "category": "Traditional Leadership",
+        "address": "25 Onitsha Road, Nnewi, Anambra State",
+        "phone": "+234 809 876 5432",
+        "website": "https://www.ozotitle.org",
+        "image": "images/ozo.webp",
+        "membership": 4,
+        "description": "An association of traditional Igbo title holders promoting cultural governance and heritage."
+    }
+]

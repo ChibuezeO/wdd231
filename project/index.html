@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igbo Cultural Heritage Hub - Welcome</title>
+    <meta name="description"
+        content="Explore Igbo culture, traditions, festivals, and community. Join us to celebrate and preserve Igbo heritage.">
+    <meta name="author" content="Hyacinth Chibueze Okoro">
+    <meta property="og:title" content="Igbo Cultural Heritage Hub">
+    <meta property="og:description"
+        content="Discover Igbo traditions, festivals, and community. Connect with our cultural heritage.">
+    <meta property="og:image" content="https://afcyare.github.io/wdd231/cultural/images/igbo-mask.svg">
+    <meta property="og:url" content="https://afcyare.github.io/wdd231/cultural/index.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/normal.css">
+    <link rel="stylesheet" href="styles/cultural.css">
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Igbo Cultural Heritage Hub Logo" width="50" height="50">
+                    <span>Igbo Cultural Heritage Hub</span>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="directory.html">Cultural Groups</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="discover.html">Learn More</a></li>
+                    </ul>
+                </nav>
+                <button id="mode" aria-label="Toggle dark mode">
+                    <span class="mode-icon">🌙</span> Dark Mode
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h1>Igbo Cultural Heritage Hub - Celebrating Our Roots</h1>
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <h2 id="hero-heading">Welcome to Igbo Cultural Heritage Hub</h2>
+                <p>Preserving and promoting the rich traditions of the Igbo people.</p>
+                <a href="join.html" class="cta-button">Join Our Community</a>
+            </div>
+        </section>
+        <div class="main-grid">
+            <section class="spotlights" aria-labelledby="spotlights-heading">
+                <h2 id="spotlights-heading" class="sr-only">Cultural Spotlights</h2>
+                <div id="spotlightContainer" class="spotlights-grid"></div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Igbo Cultural Heritage Hub</h3>
+                    <p>Awka, Anambra</p>
+                    <p>info@igboculturalhub.ng</p>
+                    <p>+2348102367227</p>
+                </div>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/hyacinth-okoro-30184179/" target="_blank"><img
+                            src="images/linkedin.svg" alt="LinkedIn logo" width="50" height="50"></a>
+                    <a href="https://github.com/ChibuezeO/" target="_blank"><img src="images/github.svg"
+                            alt="GitHub logo" width="50" height="50"></a>
+                    <a href="https://x.com/hyacinth_okoro/" target="_blank"><img src="images/x.svg"
+                            alt="Twitter (X) logo" width="50" height="50"></a>
+                </div>
+                <div class="footer-info">
+                    <h3>WDD231 Cultural Home Page</h3>
+                    <p>Hyacinth Chibueze Okoro</p>
+                    <p>© <span id="currentYear"></span> Igbo Cultural Heritage Hub</p>
+                    <p>Last Modification: <span id="lastModified"></span></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="copyrightYear"></span> Igbo Cultural Heritage Hub. All rights reserved.</p>
+                <a
+                    href="https://www.loom.com/share/bdc66e00159b42088fa99ed0610b5fe3?sid=449c8c93-1586-487b-bd4c-120fc38f341b">Video
+                    here</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

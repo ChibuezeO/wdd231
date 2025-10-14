@@ -1,0 +1,44 @@
+[
+    {
+        "name": "New Yam Festival (Iri Ji)",
+        "address": "Various communities, Anambra, Imo, Enugu, Abia States",
+        "cost": "Free (offerings or donations may apply)",
+        "description": "An annual Igbo festival celebrating the yam harvest with dances, feasts, and cultural displays.",
+        "photo_url": "images/yam_festival.webp"
+    },
+    {
+        "name": "Ogho Cultural Dance",
+        "address": "Various communities, Anambra, Imo, Enugu, Abia States",
+        "cost": "Free (offerings or donations may apply)",
+        "description": "The festival acts as a homecoming event, where people from both near and far return to reconnect with their heritage..",
+        "photo_url": "images/ogho.webp"
+    },
+    {
+        "name": "Ofala Festival",
+        "address": "Onitsha, Anambra State",
+        "cost": "Free (public event; VIP seating may cost ~N1,000)",
+        "description": "A royal festival celebrating Igbo kingship with parades, music, and traditional attire.",
+        "photo_url": "images/ofala.webp"
+    },
+    {
+        "name": "Omenala Cultural Centre",
+        "address": "10 Okigwe Road, Owerri, Imo State",
+        "cost": "N500–N1,000 (entry and activities)",
+        "description": "A cultural centre showcasing Igbo art, music, and traditional performances.",
+        "photo_url": "images/omenala_culture.webp"
+    },
+    {
+        "name": "Mmanwu Festival",
+        "address": "Nsukka, Enugu State",
+        "cost": "Free (public event; donations appreciated)",
+        "description": "A vibrant festival featuring Igbo masquerades, music, and community celebrations.",
+        "photo_url": "images/mmanwu_fest.webp"
+    },
+    {
+        "name": "Igu Aro Nri",
+        "address": "Nri, Anaocha LGA, Anambra State.",
+        "cost": "Free (public event; donations appreciated)",
+        "description": "Igu Aro is a tradition practiced yearly by the Igbo people in Nri in Anaocha LGA, Anambra State. It marks the start of the Igbo traditional New Year and the beginning of the farming season while connecting the Igbo people to their ancestors, present lives, and future.",
+        "photo_url": "images/nri.webp"
+    }
+]

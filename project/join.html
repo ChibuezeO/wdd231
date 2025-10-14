@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Igbo Cultural Heritage Hub</title>
+    <meta name="description"
+        content="Join the Igbo Cultural Heritage Hub to preserve and promote Igbo traditions and community.">
+    <meta name="author" content="Hyacinth Chibueze Okoro">
+    <meta property="og:title" content="Igbo Cultural Heritage Hub">
+    <meta property="og:description" content="Join our community to celebrate and preserve Igbo cultural heritage.">
+    <meta property="og:image" content="https://afcyare.github.io/wdd231/cultural/images/igbo-mask.svg">
+    <meta property="og:url" content="https://afcyare.github.io/wdd231/cultural/join.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/normal.css">
+    <link rel="stylesheet" href="styles/cultural.css">
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Igbo Cultural Heritage Hub Logo" width="50" height="50">
+                    <span>Igbo Cultural Heritage Hub</span>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="directory.html">Cultural Groups</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="discover.html">Learn More</a></li>
+                    </ul>
+                </nav>
+                <button id="mode" aria-label="Toggle dark mode">
+                    <span class="mode-icon">🌙</span> Dark Mode
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="joincontainer">
+        <h1>Join Our Cultural Community</h1>
+        <section class="formSec">
+            <h2>Membership Application Form</h2>
+            <form method="get" action="thankyou.html">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" title="Enter your first name" required
+                        autocomplete="given-name">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" title="Enter your last name" required
+                        autocomplete="family-name">
+                    <label for="title">Cultural Role/Title</label>
+                    <input type="text" name="title" id="title" autocomplete="organization-title"
+                        pattern="[A-Za-z\- ]{7,}"
+                        title="Must be at least 7 characters long. Only letters, hyphens, and spaces are allowed."
+                        required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" title="Enter your email" placeholder="example@yahoo.com"
+                        autocomplete="email" required>
+                    <label for="tel">Phone number</label>
+                    <input type="tel" name="tel" id="tel" title="Enter your phone number"
+                        placeholder="+234-803 1111 222" autocomplete="tel" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Organization/Group</legend>
+                    <label for="org">Cultural Organization</label>
+                    <input type="text" name="org" id="org" title="Enter organization's name" autocomplete="organization"
+                        required>
+                </fieldset>
+                <fieldset>
+                    <legend>Membership Level</legend>
+                    <label><input type="radio" name="membership" value="community" checked> Community Member</label>
+                    <label><input type="radio" name="membership" value="artisan"> Artisan</label>
+                    <label><input type="radio" name="membership" value="patron"> Patron</label>
+                    <label><input type="radio" name="membership" value="elder"> Elder</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Description</legend>
+                    <label for="desc">Cultural Contribution</label>
+                    <textarea name="description" id="desc"></textarea>
+                    <input type="hidden" name="date" id="date">
+                    <button type="submit" id="btn">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+        <section class="membership">
+            <h2>Membership Levels</h2>
+            <div class="cardcontainer">
+                <div class="card">
+                    <h3>Community Member</h3>
+                    <button id="community" class="learn">Learn More</button>
+                </div>
+                <div class="card">
+                    <h3>Artisan</h3>
+                    <button id="artisan" class="learn">Learn More</button>
+                </div>
+                <div class="card">
+                    <h3>Patron</h3>
+                    <button id="patron" class="learn">Learn More</button>
+                </div>
+                <div class="card">
+                    <h3>Elder</h3>
+                    <button id="elder" class="learn">Learn More</button>
+                </div>
+            </div>
+        </section>
+        <dialog id="communityModal">
+            <h3>Community Member Benefits</h3>
+            <ul>
+                <li>Access to cultural events</li>
+                <li>Community recognition</li>
+                <li>Newsletter subscription</li>
+            </ul>
+            <button class="close">✖️</button>
+        </dialog>
+        <dialog id="artisanModal">
+            <h3>Artisan Benefits</h3>
+            <ul>
+                <li>Showcase at cultural festivals</li>
+                <li>Directory listing</li>
+            </ul>
+            <button class="close">✖️</button>
+        </dialog>
+        <dialog id="patronModal">
+            <h3>Patron Benefits</h3>
+            <ul>
+                <li>All Artisan benefits</li>
+                <li>Homepage spotlight</li>
+                <li>Event discounts</li>
+            </ul>
+            <button class="close">✖️</button>
+        </dialog>
+        <dialog id="elderModal">
+            <h3>Elder Benefits</h3>
+            <ul>
+                <li>All Patron benefits</li>
+                <li>Exclusive cultural workshops</li>
+                <li>Priority event invitations</li>
+            </ul>
+            <button class="close">✖️</button>
+        </dialog>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Igbo Cultural Heritage Hub</h3>
+                    <p>Awka, Anambra</p>
+                    <p>info@igboculturalhub.ng</p>
+                    <p>+2348102367227</p>
+                </div>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/hyacinth-okoro-30184179/" target="_blank"><img
+                            src="images/linkedin.svg" alt="LinkedIn logo" width="50" height="50"></a>
+                    <a href="https://github.com/ChibuezeO/" target="_blank"><img src="images/github.svg"
+                            alt="GitHub logo" width="50" height="50"></a>
+                    <a href="https://x.com/hyacinth_okoro/" target="_blank"><img src="images/x.svg"
+                            alt="Twitter (X) logo" width="50" height="50"></a>
+                </div>
+                <div class="footer-info">
+                    <h3>WDD231 Cultural Join Page</h3>
+                    <p>Hyacinth Chibueze Okoro</p>
+                    <p>© <span id="currentYear"></span> Igbo Cultural Heritage Hub</p>
+                    <p>Last Modification: <span id="lastModified"></span></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="copyrightYear"></span> Igbo Cultural Heritage Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
