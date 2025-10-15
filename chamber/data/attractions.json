@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Ogbaukwu Caves and Waterfall",
+        "address": "Owerre-Ezukala, Orumba South L.G.A, Anambra State.",
+        "cost": "N200–N500 per person (affordable entry; group rates lower)",
+        "description": "West Africa's largest cave, with roomy chambers that could fit a village and a stunning waterfall nearby.",
+        "photo_url": "images/ogbaukwu.webp"
+    },
+    {
+        "name": "Igbo-Ukwu Museum",
+        "address": "Km 4, Umudege Ezinifite Road, Igbo-Ukwu, Aguata LGA, Anambra State.",
+        "cost": "N200–N500 per adult (nominal fee for entry and guided tour)",
+        "description": "Home to 9th-century bronze artifacts showcasing ancient Igbo craftsmanship.",
+        "photo_url": "images/igboukwu.webp"
+    },
+    {
+        "name": "Rojenny Tourist Village",
+        "address": "Km 11, Onitsha-Owerri Expressway, Oba, Idemili South LGA, Anambra State.",
+        "cost": "N500–N1,000 entry (varies by activity; zoo/swimming extra ~N500)",
+        "description": "A family-friendly haven in Oba with a zoo, amusement park, swimming pool, and picnic areas.",
+        "photo_url": "images/rojenny.webp"
+    },
+    {
+        "name": "Zik's Mausoleum",
+        "address": "Bremeo Junction, Limca Road, Isiafor Layout, Onitsha South LGA, Anambra State",
+        "cost": "Free or nominal N200 (open to public; events may have fees)",
+        "description": "The resting place of Nigeria's first president, Nnamdi Azikiwe, in Anambra's commercial hub.",
+        "photo_url": "images/zik.webp"
+    },
+    {
+        "name": "Agulu Lake",
+        "address": "Umuowele Village, Agulu, Anaocha LGA, Anambra State.",
+        "cost": "N200–N500 (boat rides extra ~N1,000)",
+        "description": "A massive natural lake teeming with crocodiles and birds, offering boat rides and fishing.",
+        "photo_url": "images/agulu.webp"
+    },
+    {
+        "name": "Igbariam Wonder Lake",
+        "address": "Igbariam, Anambra East LGA, Anambra State",
+        "cost": "Free or minimal N100–N200 (local access; boating extra)",
+        "description": "A scenic lake with sandy beaches and boating opportunities.",
+        "photo_url": "images/igboariam.webp"
+    },
+    {
+        "name": "Anambra Resort (Oba Golf and Country Club)",
+        "address": "Oba, Idemili South LGA, Anambra State.",
+        "cost": "N1,000–N5,000 (golf green fees ~N3,000; day pass for facilities)",
+        "description": "A luxurious spot for golfing, swimming, and spa treatments amid green fairways.",
+        "photo_url": "images/golf.webp"
+    },
+    {
+        "name": "Umuoji Area Park",
+        "address": "Nkwo, Umuodzhi, Idemili North LGA, Anambra State.",
+        "cost": "Free entry (picnic fees ~N200 if applicable)",
+        "description": "A lush urban park for picnics, walks, and cultural events.",
+        "photo_url": "images/umuoji.webp"
+    }
+]

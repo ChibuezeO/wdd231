@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Innoson Vehicle Manufacturing",
+        "category": "Automotive",
+        "address": "Plot W/L Industrial Layout, Emene, Enugu, Enugu State",
+        "phone": "+234 803 700 2020",
+        "website": "https://www.innosonvehicles.com",
+        "image": "images/innoson.png",
+        "membership": 1,
+        "description": "Nigeria's first indigenous vehicle manufacturing company, producing cars, buses, and SUVs."
+    },
+    {
+        "name": "SABMiller Nigeria",
+        "category": "Beverages",
+        "address": "1 Brewery Road, Ijebu Ode, Ogun State",
+        "phone": "+234 807 509 0000",
+        "website": "https://www.ab-inbev.com",
+        "image": "images/sabmiller.png",
+        "membership": 2,
+        "description": "A leading brewery producing popular beer brands like Hero and Trophy."
+    },
+    {
+        "name": "Tiger Foods Limited",
+        "category": "Food Processing",
+        "address": "Km 10, Old Lagos Road, Ibadan, Oyo State",
+        "phone": "+234 802 222 3344",
+        "website": "https://www.tigerfoods.com",
+        "image": "images/tiger.png",
+        "membership": 2,
+        "description": "Manufacturer of spices, seasonings, and food ingredients for Nigerian cuisine."
+    },
+    {
+        "name": "Blord Group",
+        "category": "Technology",
+        "address": "10 Blord Avenue, Awka, Anambra state",
+        "phone": "+234 906 000 1234",
+        "website": "https://www.blordgroup.com",
+        "image": "images/blord.png",
+        "membership": 1,
+        "description": "A fast-growing tech company specializing in cryptocurrency, real estate, and e-commerce solutions."
+    },
+    {
+        "name": "Cutix Plc",
+        "category": "Manufacturing",
+        "address": "17, Osita Onyejianya Street, Umuanuka, Otolo, Nnewi, Anambra State",
+        "phone": "+234 803 313 1004",
+        "website": "https://www.cutixplc.com.ng",
+        "image": "images/curtix.png",
+        "membership": 3,
+        "description": "A leading manufacturer of electrical cables and wires in Nigeria."
+    },
+    {
+        "name": "Dangote Group",
+        "category": "Conglomerate",
+        "address": "1 Alfred Rewane Road, Ikoyi, Lagos",
+        "phone": "+234 1 279 6666",
+        "website": "https://www.dangote.com",
+        "image": "images/dangote.png",
+        "membership": 3,
+        "description": "A leading conglomerate with interests in cement, sugar, salt, and other industries across Africa."
+    },
+    {
+        "name": "BUA Group",
+        "category": "Conglomerate",
+        "address": "PC 32, KM 11, Ibadan-Lagos Expressway, Ibadan, Oyo State",
+        "phone": "+234 1 461 0669",
+        "website": "https://www.buagroup.com",
+        "image": "images/bua.png",
+        "membership": 3,
+        "description": "A major conglomerate with interests in cement, sugar refining, and real estate."
+    }
+]
